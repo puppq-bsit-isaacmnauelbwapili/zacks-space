@@ -1587,7 +1587,6 @@ body.light .project-modal-backdrop {
   100% { transform: scale(1); }
 }
 
-
 .music-toggle {
   display: inline-flex;
   align-items: center;
