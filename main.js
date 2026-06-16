@@ -213,12 +213,15 @@ cornerWrap.addEventListener('click', () => {
   bubble.textContent = messages[msgIndex];
 });
 
-/* hide when scrolled down, reappear when back near the top */
+/* mobile only — hide when scrolled down, reappear when back near the top */
 (function () {
   const THRESHOLD = 80;
   let hidden = false;
 
   window.addEventListener('scroll', () => {
+    // do nothing on desktop (769px and above)
+    if (window.innerWidth >= 769) return;
+
     if (window.scrollY > THRESHOLD && !hidden) {
       cornerWrap.style.opacity = '0';
       cornerWrap.style.transform = 'translateY(12px)';
