@@ -128,6 +128,26 @@ catStyle.textContent = `
     50%       { transform: translateY(-4px); }
   }
 
+  /* ─── CORNER PHOTO · MOBILE ─── */
+  @media (max-width: 768px) {
+    #corner-photo-wrap {
+      bottom: 4.8rem;
+      right: 1rem;
+    }
+
+    #corner-photo-img {
+      width: 44px;
+      height: 44px;
+    }
+
+    #corner-photo-bubble {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      font-size: 0.6rem;
+      padding: 0.3rem 0.6rem;
+    }
+  }
+
   /* ─── MUSIC PLAYER ─── */
   #music-player {
     position: fixed;
@@ -202,6 +222,12 @@ cornerWrap.appendChild(cornerImg);
 document.body.appendChild(cornerWrap);
 
 cornerWrap.addEventListener('mouseenter', () => {
+  msgIndex = (msgIndex + 1) % messages.length;
+  bubble.textContent = messages[msgIndex];
+});
+
+/* cycle messages on tap for mobile */
+cornerWrap.addEventListener('click', () => {
   msgIndex = (msgIndex + 1) % messages.length;
   bubble.textContent = messages[msgIndex];
 });
