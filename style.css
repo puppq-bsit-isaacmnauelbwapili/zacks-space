@@ -947,7 +947,7 @@ body {
 /* ─── BACK TO TOP ─── */
 .back-to-top {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 86px;   /* sits above the corner photo widget */
   right: 22px;
   width: 40px;
   height: 40px;
@@ -1241,6 +1241,7 @@ body.light .cursor-glow {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 body.light .now-widget {
@@ -1263,32 +1264,21 @@ body.light .now-widget {
 }
 
 @media (max-width: 768px) {
-  /* music stays bottom-left */
-  .music-player {
-    bottom: 1rem;
-    left: 1rem;
-  }
-
-  /* now-widget sits above the music player */
   .now-widget {
-    left: 1rem;
-    right: 1rem;
+    left: 12px;
+    right: 12px;
     transform: none;
-    bottom: 4.2rem;
+    bottom: 78px;
     justify-content: center;
     max-width: none;
   }
-
   .now-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
-  /* back-to-top moves to bottom-right so it doesn't clash */
   .back-to-top {
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 78px;
   }
 }
 
@@ -1600,7 +1590,7 @@ body.light .project-modal-backdrop {
 /* ─── MUSIC PLAYER ─── */
 .music-player {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 5rem;
   left: 1.5rem;
   z-index: 999;
 }

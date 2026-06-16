@@ -406,12 +406,26 @@ copyEmailBtn.addEventListener('click', () => {
   });
 });
 
-/* ─── BACK TO TOP ─── */
+/* ─── BACK TO TOP + NOW WIDGET SCROLL BEHAVIOR ─── */
 const backToTop = document.getElementById('backToTop');
+const nowWidget = document.getElementById('nowWidget');
 
 window.addEventListener('scroll', () => {
   backToTop.classList.toggle('show', window.scrollY > 600);
-});
+
+  // hide now-widget on scroll (mobile only)
+  if (nowWidget && window.innerWidth < 769) {
+    if (window.scrollY > 80) {
+      nowWidget.style.opacity = '0';
+      nowWidget.style.transform = 'translateX(-50%) translateY(10px)';
+      nowWidget.style.pointerEvents = 'none';
+    } else {
+      nowWidget.style.opacity = '1';
+      nowWidget.style.transform = 'translateX(-50%) translateY(0)';
+      nowWidget.style.pointerEvents = 'auto';
+    }
+  }
+}, { passive: true });
 
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
