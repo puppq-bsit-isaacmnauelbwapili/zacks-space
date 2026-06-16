@@ -219,35 +219,6 @@ if (YOUTUBE_URL) {
   tag.src = 'https://www.youtube.com/iframe_api';
   document.head.appendChild(tag);
 }
-
-const musicPlayer = document.createElement('div');
-musicPlayer.id = 'music-player';
-musicPlayer.classList.add('paused');
-musicPlayer.innerHTML = `<span class="music-icon">♪</span><span class="music-label">play music</span>`;
-document.body.appendChild(musicPlayer);
-
-musicPlayer.addEventListener('click', () => {
-  if (!YOUTUBE_URL) {
-    musicPlayer.querySelector('.music-label').textContent = 'add a link first!';
-    setTimeout(() => {
-      musicPlayer.querySelector('.music-label').textContent = 'play music';
-    }, 2000);
-    return;
-  }
-  if (!ytPlayer) return;
-  if (musicPlaying) {
-    ytPlayer.pauseVideo();
-    musicPlaying = false;
-    musicPlayer.classList.add('paused');
-    musicPlayer.querySelector('.music-label').textContent = 'play music';
-  } else {
-    ytPlayer.playVideo();
-    musicPlaying = true;
-    musicPlayer.classList.remove('paused');
-    musicPlayer.querySelector('.music-label').textContent = 'now playing ♪';
-  }
-});
-
 window.onYouTubeIframeAPIReady = function () {
   const videoId = YOUTUBE_URL.match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1];
   if (!videoId) return;

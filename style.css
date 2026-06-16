@@ -1586,13 +1586,7 @@ body.light .project-modal-backdrop {
   40%  { transform: scale(1.07); }
   100% { transform: scale(1); }
 }
-/* ─── MUSIC PLAYER ─── */
-.music-player {
-  position: fixed;
-  bottom: 5rem;
-  left: 1.5rem;
-  z-index: 999;
-}
+
 
 .music-toggle {
   display: inline-flex;
