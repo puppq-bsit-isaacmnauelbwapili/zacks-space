@@ -415,13 +415,16 @@ window.addEventListener('scroll', () => {
 
   // hide now-widget on scroll (mobile only)
   if (nowWidget && window.innerWidth < 769) {
+    const isMobile = window.innerWidth < 769;
+    const translateBase = isMobile ? 'translateY' : 'translateX(-50%) translateY';
+
     if (window.scrollY > 80) {
       nowWidget.style.opacity = '0';
-      nowWidget.style.transform = 'translateX(-50%) translateY(10px)';
+      nowWidget.style.transform = isMobile ? 'translateY(10px)' : 'translateX(-50%) translateY(10px)';
       nowWidget.style.pointerEvents = 'none';
     } else {
       nowWidget.style.opacity = '1';
-      nowWidget.style.transform = 'translateX(-50%) translateY(0)';
+      nowWidget.style.transform = isMobile ? 'translateY(0)' : 'translateX(-50%) translateY(0)';
       nowWidget.style.pointerEvents = 'auto';
     }
   }
