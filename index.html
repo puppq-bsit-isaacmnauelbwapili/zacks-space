@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zack's space</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- STARS BACKGROUND -->
+  <div class="stars" id="stars"></div>
+
+  <!-- INTRO -->
+  <div class="intro-screen" id="introScreen">
+    <p class="intro-text"><span id="introTyping"></span><span class="typing-cursor">|</span></p>
+  </div>
+
+  <!-- LOGIN SCREEN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <div class="login-avatar">
+        <img src="images/Formal-Picture.jpg" alt="zack" />
+      </div>
+      <p class="login-name">zack's space</p>
+      <p class="login-sub">PUP Parañaque · BSIT</p>
+
+      <form class="login-form" id="loginForm" autocomplete="off">
+        <input type="text" id="loginUser" class="login-input" placeholder="username" autocomplete="username" />
+        <input type="password" id="loginPass" class="login-input" placeholder="password" autocomplete="current-password" />
+        <p class="login-error" id="loginError">wrong username or password — try again</p>
+        <button type="submit" class="login-btn">enter ↗</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MAIN SITE -->
+  <div class="site" id="mainSite">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <span class="nav-logo">zack.</span>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" data-section="home">home</a></li>
+        <li><a href="#about" data-section="about">about</a></li>
+        <li><a href="#skills" data-section="skills">skills</a></li>
+        <li><a href="#journey" data-section="journey">journey</a></li>
+        <li><a href="#projects" data-section="projects">projects</a></li>
+        <li><a href="#links" data-section="links">links</a></li>
+        <li><a href="#faq" data-section="faq">faq</a></li>
+        <li><a href="#contact" data-section="contact">contact</a></li>
+      </ul>
+      <span class="nav-clock" id="navClock"></span>
+      <button class="theme-toggle" id="themeToggle" aria-label="toggle theme" title="toggle theme">☼</button>
+      <button class="nav-toggle" id="navToggle" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="closeMenu()">home</a>
+      <a href="#about" onclick="closeMenu()">about</a>
+      <a href="#skills" onclick="closeMenu()">skills</a>
+      <a href="#journey" onclick="closeMenu()">journey</a>
+      <a href="#projects" onclick="closeMenu()">projects</a>
+      <a href="#links" onclick="closeMenu()">links</a>
+      <a href="#faq" onclick="closeMenu()">faq</a>
+      <a href="#contact" onclick="closeMenu()">contact</a>
+    </div>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="hero-greeting">hi, i'm</p>
+        <h1 class="hero-name">zack <span class="hero-aka">/ zackie</span></h1>
+        <p class="hero-tagline"><span id="typingText"></span><span class="typing-cursor">|</span></p>
+        <p class="hero-desc">one call away — always.</p>
+        <div class="hero-btns">
+          <a href="#about" class="btn-primary">know me</a>
+          <a href="#projects" class="btn-ghost">my work</a>
+          <a href="resume.pdf" class="btn-ghost" download>resume ↓</a>
+        </div>
+        <p class="kbd-hint"><kbd>1</kbd>–<kbd>8</kbd> to jump between sections</p>
+      </div>
+
+      <div class="hero-photo">
+        <img src="images/Formal-Picture.jpg" alt="zack" />
+      </div>
+
+      <div class="hero-scroll">scroll ↓</div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats-strip" id="statsStrip">
+      <div class="stat-item">
+        <span class="stat-count" data-target="4">0</span>
+        <span class="stat-item-label">projects built</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-count" data-target="2026" data-no-format="true">0</span>
+        <span class="stat-item-label">grad year (BSIT)</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-count" data-target="100" data-suffix="%">0</span>
+        <span class="stat-item-label">iskolar ng bayan</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-count" data-target="1" data-suffix=" call">0</span>
+        <span class="stat-item-label">always away</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-inner">
+        <p class="section-label">01 · about</p>
+        <h2 class="section-title">who's zack?</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              known as <em>zack</em> — or <em>zackie</em> to those who know he's always a call away.
+              a <strong>BSIT scholar</strong> at <strong>PUP Parañaque</strong> who keeps things moving
+              without making a fuss about it.
+            </p>
+            <p>
+              he's a natural <strong>team leader</strong> and <strong>QA tester</strong> — someone
+              who reads the room before the room even knows it needs to be read.
+              the kind of person who goes with the flow but somehow always ends up steering the ship.
+            </p>
+            <p>
+              <em>a pisces.</em> a listener. a fixer. and yes — always one call away.
+            </p>
+          </div>
+          <div class="about-card">
+            <div class="about-stat"><span class="stat-num">BSIT</span><span class="stat-label">program</span></div>
+            <div class="about-divider"></div>
+            <div class="about-stat"><span class="stat-num">PUP-PQ</span><span class="stat-label">school</span></div>
+            <div class="about-divider"></div>
+            <div class="about-stat"><span class="stat-num">♓</span><span class="stat-label">pisces</span></div>
+            <div class="about-divider"></div>
+            <div class="about-stat"><span class="stat-num">1 call</span><span class="stat-label">away</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+      <div class="section-inner">
+        <p class="section-label">02 · skills</p>
+        <h2 class="section-title">what i bring</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <p class="skill-group-label">soft skills</p>
+            <div class="skill-bars">
+              <div class="skill-bar" data-level="92">
+                <div class="skill-bar-head"><span>Leading</span><span class="skill-pct">92%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="88">
+                <div class="skill-bar-head"><span>Analyzing</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="85">
+                <div class="skill-bar-head"><span>Communication</span><span class="skill-pct">85%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-head"><span>Technical Problem Solving</span><span class="skill-pct">90%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="80">
+                <div class="skill-bar-head"><span>Gathering Information</span><span class="skill-pct">80%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-label">tools & tech</p>
+            <div class="skill-tags">
+              <span class="tag tag-accent">VS Code</span>
+              <span class="tag tag-accent">Eclipse</span>
+              <span class="tag tag-accent">Cisco Packet Tracer</span>
+              <span class="tag tag-accent">GitHub</span>
+              <span class="tag tag-accent">SQL Workbench</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="section section-alt" id="journey">
+      <div class="section-inner">
+        <p class="section-label">03 · journey</p>
+        <h2 class="section-title">how i got here</h2>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-year">2023</p>
+              <h3 class="timeline-title">started BSIT at PUP Parañaque</h3>
+              <p class="timeline-desc">began the BSIT program as an iskolar ng bayan — first taste of programming, networking, and team-based coursework.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-year">2024</p>
+              <h3 class="timeline-title">took on team leader & QA roles</h3>
+              <p class="timeline-desc">started leading group projects and doing QA testing — reading the room, catching bugs, and keeping teams on track.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-year">2025</p>
+              <h3 class="timeline-title">built first major projects</h3>
+              <p class="timeline-desc">PUPET Task Manager, Attendance Checker System, and Prefix-to-Infix Conversion — applying data structures, automation, and authentication in real coursework.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-body">
+              <p class="timeline-year">2026</p>
+              <h3 class="timeline-title">networking deep-dive & this portfolio</h3>
+              <p class="timeline-desc">working through multi-VLAN configurations, ACL troubleshooting, and inter-VLAN routing in Cisco Packet Tracer — and building this space to bring it all together.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <p class="section-label">04 · projects</p>
+        <h2 class="section-title">things i've built</h2>
+
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-btn active" data-filter="all">all</button>
+          <button class="filter-btn" data-filter="student tool">student tool</button>
+          <button class="filter-btn" data-filter="productivity">productivity</button>
+          <button class="filter-btn" data-filter="automation">automation</button>
+          <button class="filter-btn" data-filter="authentication">authentication</button>
+          <button class="filter-btn" data-filter="algorithms">algorithms</button>
+          <button class="filter-btn" data-filter="data structures">data structures</button>
+          <button class="filter-btn" data-filter="simulation">simulation</button>
+          <button class="filter-btn" data-filter="python">python</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card" data-tags="student tool, productivity" data-project="pupet">
+            <div class="project-img">
+              <img src="images/PUPET TASK MANAGER.png" alt="PUPET Task Manager" />
+            </div>
+            <div class="project-body">
+              <p class="project-num">01</p>
+              <h3 class="project-title">PUPET Task Manager</h3>
+              <p class="project-desc">
+                A task management system designed to help students organize tasks,
+                monitor deadlines, and manage workloads efficiently. Improves
+                productivity through structured task tracking and a user-friendly interface.
+              </p>
+              <div class="project-tags">
+                <span class="ptag">student tool</span>
+                <span class="ptag">productivity</span>
+              </div>
+              <button class="project-more" data-open="pupet">view details ↗</button>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="automation, authentication" data-project="attendance">
+            <div class="project-img">
+              <img src="images/PROJECT.png"alt="Attendance Checker System" />
+            </div>
+            <div class="project-body">
+              <p class="project-num">02</p>
+              <h3 class="project-title">Attendance Checker System</h3>
+              <p class="project-desc">
+                A digital attendance monitoring system that records student time-in and
+                time-out automatically. Includes authentication features and accurate
+                attendance tracking for better monitoring and record keeping.
+              </p>
+              <div class="project-tags">
+                <span class="ptag">automation</span>
+                <span class="ptag">authentication</span>
+              </div>
+              <button class="project-more" data-open="attendance">view details ↗</button>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="algorithms, data structures" data-project="prefix">
+            <div class="project-img">
+              <img src="images/PREFIX-TO-INFIX-CONVERSION-PROJECT.png" alt="Prefix to Infix Conversion" />
+            </div>
+            <div class="project-body">
+              <p class="project-num">03</p>
+              <h3 class="project-title">Prefix to Infix Conversion</h3>
+              <p class="project-desc">
+                A program that converts prefix expressions into infix expressions using
+                stack data structures. Demonstrates knowledge in algorithms, expression
+                parsing, and data structure implementation.
+              </p>
+              <div class="project-tags">
+                <span class="ptag">algorithms</span>
+                <span class="ptag">data structures</span>
+              </div>
+              <button class="project-more" data-open="prefix">view details ↗</button>
+            </div>
+          </div>
+
+          <div class="project-card" data-tags="simulation, python" data-project="jeepney">
+            <div class="project-img">
+              <img src="images/JEEPNEY-SIMULATOR.png" alt="PUJ Fuel Consumption Simulator" />
+            </div>
+            <div class="project-body">
+              <p class="project-num">04</p>
+              <h3 class="project-title">PUJ Fuel Consumption Simulator</h3>
+              <p class="project-desc">
+                A physics-based simulation of fuel consumption across driving behaviors
+                (Aggressive, Moderate, Eco) for Public Utility Jeepneys in Parañaque City.
+                Models an Isuzu 4JB1 diesel engine across four real routes with a
+                Streamlit-connected web frontend.
+              </p>
+              <div class="project-tags">
+                <span class="ptag">simulation</span>
+                <span class="ptag">python</span>
+              </div>
+              <button class="project-more" data-open="jeepney">view details ↗</button>
+            </div>
+          </div>
+
+        </div>
+        <p class="filter-empty" id="filterEmpty">nothing here yet — try another filter.</p>
+      </div>
+    </section>
+
+    <!-- PROJECT MODAL -->
+    <div class="project-modal" id="projectModal">
+      <div class="project-modal-backdrop" data-close="true"></div>
+      <div class="project-modal-content">
+        <button class="project-modal-close" data-close="true">✕</button>
+        <div class="project-modal-img">
+          <img id="modalImg" src="" alt="" />
+        </div>
+        <p class="project-num" id="modalNum"></p>
+        <h3 class="project-title" id="modalTitle"></h3>
+        <p class="project-desc" id="modalDesc"></p>
+        <div class="project-tags" id="modalTags"></div>
+        <div class="modal-extra" id="modalExtra"></div>
+      </div>
+    </div>
+
+    <!-- LINKS -->
+    <section class="section section-alt" id="links">
+      <div class="section-inner">
+        <p class="section-label">05 · links</p>
+        <h2 class="section-title">find me at</h2>
+        <div class="links-grid">
+          <a class="link-card" href="https://instagram.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">instagram</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://facebook.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">facebook</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://discord.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">discord</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://twitter.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">twitter / x</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://spotify.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">spotify</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://youtube.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">youtube</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://roblox.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">roblox</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://github.com" target="_blank">
+            <span class="link-icon">◈</span>
+            <span class="link-name">github</span>
+            <span class="link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="links-note">* clicking opens a new tab</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section-inner">
+        <p class="section-label">06 · faq</p>
+        <h2 class="section-title">asked & answered</h2>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              why do they call you zack?
+              <span class="faq-arrow">↓</span>
+            </button>
+            <div class="faq-a">
+              <p>because i'm always one call away — simple as that. zackie works too if we're close. 😄</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              what do you do?
+              <span class="faq-arrow">↓</span>
+            </button>
+            <div class="faq-a">
+              <p>full-time student at PUP Parañaque taking BSIT, iskolar ng bayan. also a team leader and QA tester for group projects.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              what's your working style?
+              <span class="faq-arrow">↓</span>
+            </button>
+            <div class="faq-a">
+              <p>go with the flow — but always alert. i read the atmosphere first, then act. that's how things get done smoothly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              are you open for collaboration?
+              <span class="faq-arrow">↓</span>
+            </button>
+            <div class="faq-a">
+              <p>I'm currently still looking for opportunites, I'm still learning. But just drop me an email and we'll talk.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              pisces energy?
+              <span class="faq-arrow">↓</span>
+            </button>
+            <div class="faq-a">
+              <p>empathetic, intuitive, goes with the flow — but don't mistake chill for pushover. ♓</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-alt" id="contact">
+      <div class="section-inner contact-inner">
+        <p class="section-label">07 · contact</p>
+        <h2 class="section-title">reach out</h2>
+        <p class="contact-sub">
+          the easiest way to reach me is through email.<br>
+          i don't bite — promise.
+        </p>
+        <button class="contact-email" id="copyEmail" data-email="your@email.com">
+          your@email.com
+          <span class="copy-hint" id="copyHint">click to copy ↗</span>
+        </button>
+        <p class="contact-note">or find me through any of the social links above.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© 2026 zack · made with ♡ from pup parañaque</p>
+      <p class="footer-visits">
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=puppq-bsit-isaacmnauelbwapili.zacks-space" alt="visitor count" />
+      </p>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" aria-label="back to top">↑</button>
+
+    <!-- NOW WIDGET -->
+    <div class="now-widget" id="nowWidget">
+      <span class="now-dot"></span>
+      <span class="now-text">currently building: PUJ Fuel Consumption Simulator</span>
+    </div>
+
+  </div><!-- end .site -->
+
+  <script src="main.js"></script>
+</body>
+</html>
