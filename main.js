@@ -69,6 +69,7 @@ catStyle.textContent = `
     align-items: center;
     gap: 0px;
     cursor: default;
+    transition: opacity 0.35s ease, transform 0.35s ease;
   }
 
   #corner-photo-bubble {
@@ -126,26 +127,6 @@ catStyle.textContent = `
   @keyframes cornerBob {
     0%, 100% { transform: translateY(0px); }
     50%       { transform: translateY(-4px); }
-  }
-
-  /* ─── CORNER PHOTO · MOBILE ─── */
-  @media (max-width: 768px) {
-    #corner-photo-wrap {
-      bottom: 4.8rem;
-      right: 1rem;
-    }
-
-    #corner-photo-img {
-      width: 44px;
-      height: 44px;
-    }
-
-    #corner-photo-bubble {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      font-size: 0.6rem;
-      padding: 0.3rem 0.6rem;
-    }
   }
 
   /* ─── MUSIC PLAYER ─── */
@@ -226,11 +207,31 @@ cornerWrap.addEventListener('mouseenter', () => {
   bubble.textContent = messages[msgIndex];
 });
 
-/* cycle messages on tap for mobile */
+/* tap to cycle messages on mobile */
 cornerWrap.addEventListener('click', () => {
   msgIndex = (msgIndex + 1) % messages.length;
   bubble.textContent = messages[msgIndex];
 });
+
+/* hide when scrolled down, reappear when back near the top */
+(function () {
+  const THRESHOLD = 80;
+  let hidden = false;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > THRESHOLD && !hidden) {
+      cornerWrap.style.opacity = '0';
+      cornerWrap.style.transform = 'translateY(12px)';
+      cornerWrap.style.pointerEvents = 'none';
+      hidden = true;
+    } else if (window.scrollY <= THRESHOLD && hidden) {
+      cornerWrap.style.opacity = '1';
+      cornerWrap.style.transform = 'translateY(0)';
+      cornerWrap.style.pointerEvents = 'auto';
+      hidden = false;
+    }
+  }, { passive: true });
+})();
 
 /* ═══════════════════════════════════════════
    🎵 MUSIC PLAYER
