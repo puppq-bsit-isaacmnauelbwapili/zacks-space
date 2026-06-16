@@ -1586,3 +1586,86 @@ body.light .project-modal-backdrop {
   40%  { transform: scale(1.07); }
   100% { transform: scale(1); }
 }
+.music-player {
+  position: fixed;
+  bottom: 5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 999;
+}
+
+.music-toggle {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 2rem;
+  padding: 0.3rem 0.8rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  max-width: 0;
+  overflow: hidden;
+}
+
+.music-info.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+  max-width: 200px;
+}
+
+.music-disc {
+  font-size: 0.85rem;
+  color: var(--accent);
+  display: inline-block;
+}
+
+.music-disc.spinning {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.music-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.music-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.music-artist {
+  font-size: 0.65rem;
+  color: var(--muted);
+  white-space: nowrap;
+}

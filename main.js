@@ -679,3 +679,23 @@ document.querySelectorAll('.project-img').forEach(imgWrap => {
     setTimeout(() => imgWrap.classList.remove('pop-effect'), 400);
   });
 });
+const musicToggle = document.getElementById('musicToggle');
+const musicInfo = document.getElementById('musicInfo');
+const musicDisc = document.getElementById('musicDisc');
+const bgMusic = document.getElementById('bgMusic');
+let musicOn = false;
+
+musicToggle.addEventListener('click', () => {
+  if (musicOn) {
+    bgMusic.pause();
+    musicToggle.textContent = '♪';
+    musicDisc.classList.remove('spinning');
+    musicInfo.classList.remove('visible');
+  } else {
+    bgMusic.play();
+    musicToggle.textContent = '♬';
+    musicDisc.classList.add('spinning');
+    musicInfo.classList.add('visible');
+  }
+  musicOn = !musicOn;
+});
