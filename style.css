@@ -1586,26 +1586,29 @@ body.light .project-modal-backdrop {
   40%  { transform: scale(1.07); }
   100% { transform: scale(1); }
 }
+/* ─── MUSIC PLAYER ─── */
 .music-player {
   position: fixed;
   bottom: 5rem;
   left: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
   z-index: 999;
 }
 
 .music-toggle {
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
   border: 1px solid var(--accent);
+  border-radius: 4px;
   background: var(--bg);
   color: var(--accent);
-  font-size: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .music-toggle:hover {
@@ -1613,59 +1616,16 @@ body.light .project-modal-backdrop {
   color: var(--bg);
 }
 
-.music-info {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bg);
-  border: 1px solid var(--accent);
-  border-radius: 2rem;
-  padding: 0.3rem 0.8rem;
-  opacity: 0;
-  transform: translateX(-10px);
-  pointer-events: none;
-  transition: all 0.3s ease;
-  max-width: 0;
-  overflow: hidden;
+.music-toggle.playing {
+  background: var(--accent);
+  color: var(--bg);
 }
 
-.music-info.visible {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: all;
-  max-width: 200px;
+.music-icon {
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
-.music-disc {
-  font-size: 0.85rem;
-  color: var(--accent);
-  display: inline-block;
-}
-
-.music-disc.spinning {
-  animation: spin 3s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.music-meta {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.music-title {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--text);
-  white-space: nowrap;
-}
-
-.music-artist {
-  font-size: 0.65rem;
-  color: var(--muted);
-  white-space: nowrap;
+.music-label {
+  line-height: 1;
 }

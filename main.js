@@ -680,22 +680,19 @@ document.querySelectorAll('.project-img').forEach(imgWrap => {
   });
 });
 const musicToggle = document.getElementById('musicToggle');
-const musicInfo = document.getElementById('musicInfo');
-const musicDisc = document.getElementById('musicDisc');
+const musicLabel = document.getElementById('musicLabel');
 const bgMusic = document.getElementById('bgMusic');
 let musicOn = false;
 
 musicToggle.addEventListener('click', () => {
   if (musicOn) {
     bgMusic.pause();
-    musicToggle.textContent = '♪';
-    musicDisc.classList.remove('spinning');
-    musicInfo.classList.remove('visible');
+    musicLabel.textContent = 'play music';
+    musicToggle.classList.remove('playing');
   } else {
     bgMusic.play();
-    musicToggle.textContent = '♬';
-    musicDisc.classList.add('spinning');
-    musicInfo.classList.add('visible');
+    musicLabel.textContent = 'now playing ♪';
+    musicToggle.classList.add('playing');
   }
   musicOn = !musicOn;
 });
