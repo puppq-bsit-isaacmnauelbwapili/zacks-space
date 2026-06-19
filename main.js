@@ -308,20 +308,13 @@ togglePass.addEventListener('click', () => {
 
 /* ─── LOGIN AVATAR SPEAK ─── */
 const loginAvatar = document.querySelector('.login-avatar');
+const greetingAudio = new Audio('greeting_clean.mp3');
 
 loginAvatar.style.cursor = 'pointer';
 
 loginAvatar.addEventListener('click', () => {
-  if (!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-
-  const msg = new SpeechSynthesisUtterance(
-    "Hi, I'm Zack. Welcome to my website. I'm glad you have visited my web — feel free to login as soon as you're ready."
-  );
-  msg.rate = 0.95;
-  msg.pitch = 1.05;
-  msg.volume = 1;
-  window.speechSynthesis.speak(msg);
+  greetingAudio.currentTime = 0;
+  greetingAudio.play();
 });
 
 /* ─── THEME TOGGLE ─── */
