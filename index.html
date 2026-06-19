@@ -29,7 +29,15 @@
 
       <form class="login-form" id="loginForm" autocomplete="off">
         <input type="text" id="loginUser" class="login-input" placeholder="username" autocomplete="username" />
-        <input type="password" id="loginPass" class="login-input" placeholder="password" autocomplete="current-password" />
+        <div class="login-pass-wrap">
+          <input type="password" id="loginPass" class="login-input" placeholder="password" autocomplete="current-password" />
+          <button type="button" class="login-eye" id="togglePass" aria-label="toggle password visibility">
+            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
         <p class="login-error" id="loginError">wrong username or password — try again</p>
         <button type="submit" class="login-btn">enter ↗</button>
       </form>
