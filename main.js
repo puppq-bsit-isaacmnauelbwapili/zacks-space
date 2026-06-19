@@ -306,6 +306,24 @@ togglePass.addEventListener('click', () => {
        <circle cx="12" cy="12" r="3"/>`;
 });
 
+/* ─── LOGIN AVATAR SPEAK ─── */
+const loginAvatar = document.querySelector('.login-avatar');
+
+loginAvatar.style.cursor = 'pointer';
+
+loginAvatar.addEventListener('click', () => {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+
+  const msg = new SpeechSynthesisUtterance(
+    "Hi, I'm Zack. Welcome to my website. I'm glad you have visited my web — feel free to login as soon as you're ready."
+  );
+  msg.rate = 0.95;
+  msg.pitch = 1.05;
+  msg.volume = 1;
+  window.speechSynthesis.speak(msg);
+});
+
 /* ─── THEME TOGGLE ─── */
 const themeToggle = document.getElementById('themeToggle');
 let currentTheme = 'dark';
