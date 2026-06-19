@@ -1,4 +1,3 @@
-// Here's your fixed JS — replace your current script with this
 /* ─── STARS ─── */
 const starsContainer = document.getElementById('stars');
 for (let i = 0; i < 120; i++) {
@@ -52,9 +51,7 @@ function toggleFaq(btn) {
   }
 }
 
-/* ═══════════════════════════════════════════
-   👤 CORNER PHOTO WIDGET
-═══════════════════════════════════════════ */
+/* ─── CORNER PHOTO WIDGET ─── */
 
 const catStyle = document.createElement('style');
 catStyle.textContent = `
@@ -174,7 +171,6 @@ catStyle.textContent = `
 `;
 document.head.appendChild(catStyle);
 
-/* ── CORNER PHOTO WIDGET ── */
 const messages = [
   "one call away ☎",
   "hi, i'm zack 👋",
@@ -207,19 +203,17 @@ cornerWrap.addEventListener('mouseenter', () => {
   bubble.textContent = messages[msgIndex];
 });
 
-/* tap to cycle messages on mobile */
 cornerWrap.addEventListener('click', () => {
   msgIndex = (msgIndex + 1) % messages.length;
   bubble.textContent = messages[msgIndex];
 });
 
-/* mobile only — hide when scrolled down, reappear when back near the top */
+/* ─── CORNER WIDGET: hide on mobile scroll ─── */
 (function () {
   const THRESHOLD = 80;
   let hidden = false;
 
   window.addEventListener('scroll', () => {
-    // do nothing on desktop (769px and above)
     if (window.innerWidth >= 769) return;
 
     if (window.scrollY > THRESHOLD && !hidden) {
@@ -267,16 +261,11 @@ window.onYouTubeIframeAPIReady = function () {
   });
 }
 
-/* ═══════════════════════════════════════════
-   NEW FEATURES JS
-═══════════════════════════════════════════ */
-
-/* ─── LOGIN with username/password ─── */
-// Each entry below is one valid way to log in.
-// Add as many as you want — one row each.
+/* ─── LOGIN ─── */
+// Valid login credentials — add more rows if needed
 const VALID_LOGINS = [
-  { user: 'zack',      pass: 'pisces' },     // your own login
-  { user: 'professor', pass: 'guest2026' },  // give this one to your prof
+  { user: 'zack',      pass: 'pisces' },
+  { user: 'professor', pass: 'guest2026' },
 ];
 
 const loginForm = document.getElementById('loginForm');
@@ -300,6 +289,21 @@ loginForm.addEventListener('submit', (e) => {
     requestAnimationFrame(() => loginBox.classList.add('shake'));
     setTimeout(() => loginBox.classList.remove('shake'), 400);
   }
+});
+
+/* ─── PASSWORD EYE TOGGLE ─── */
+const togglePass = document.getElementById('togglePass');
+const eyeIcon = document.getElementById('eyeIcon');
+
+togglePass.addEventListener('click', () => {
+  const isHidden = loginPass.type === 'password';
+  loginPass.type = isHidden ? 'text' : 'password';
+  eyeIcon.innerHTML = isHidden
+    ? `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+       <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+       <line x1="1" y1="1" x2="23" y2="23"/>`
+    : `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+       <circle cx="12" cy="12" r="3"/>`;
 });
 
 /* ─── THEME TOGGLE ─── */
@@ -433,10 +437,6 @@ window.addEventListener('scroll', () => {
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-
-/* ═══════════════════════════════════════════
-   V2 FEATURES JS
-═══════════════════════════════════════════ */
 
 /* ─── INTRO TYPING ─── */
 const introTyping = document.getElementById('introTyping');
@@ -602,10 +602,6 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
-
-/* ═══════════════════════════════════════════
-   V3 FEATURES JS
-═══════════════════════════════════════════ */
 
 /* ─── REALTIME PH CLOCK ─── */
 const navClock = document.getElementById('navClock');
