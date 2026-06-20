@@ -62,6 +62,13 @@
       </ul>
       <span class="nav-clock" id="navClock"></span>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle theme" title="toggle theme">☼</button>
+      <button class="logout-btn" id="logoutBtn" aria-label="logout" title="logout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </button>
       <button class="nav-toggle" id="navToggle" onclick="toggleMenu()">☰</button>
     </nav>
 
@@ -75,6 +82,7 @@
       <a href="#links" onclick="closeMenu()">links</a>
       <a href="#faq" onclick="closeMenu()">faq</a>
       <a href="#contact" onclick="closeMenu()">contact</a>
+      <a href="#" id="mobileLogout" onclick="logoutSite(); closeMenu(); return false;">logout ↗</a>
     </div>
 
     <!-- HOME -->

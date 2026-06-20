@@ -16,6 +16,14 @@ function enterSite() {
   document.getElementById('mainSite').classList.add('visible');
 }
 
+function logoutSite() {
+  document.getElementById('mainSite').classList.remove('visible');
+  document.getElementById('loginScreen').classList.remove('hidden');
+  loginForm.reset();
+  loginError.classList.remove('show');
+  window.scrollTo(0, 0);
+}
+
 /* ─── NAVBAR TOGGLE ─── */
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
@@ -285,6 +293,10 @@ loginForm.addEventListener('submit', (e) => {
     setTimeout(() => loginBox.classList.remove('shake'), 400);
   }
 });
+
+/* ─── LOGOUT ─── */
+const logoutBtn = document.getElementById('logoutBtn');
+logoutBtn.addEventListener('click', logoutSite);
 
 /* ─── PASSWORD EYE TOGGLE ─── */
 const togglePass = document.getElementById('togglePass');

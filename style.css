@@ -851,6 +851,32 @@ body {
   transform: rotate(20deg);
 }
 
+/* ─── LOGOUT BUTTON ─── */
+.logout-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.75rem;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+.mobile-menu #mobileLogout {
+  color: var(--accent);
+}
+
 /* ─── TYPING ANIMATION ─── */
 .typing-cursor {
   color: var(--accent);
@@ -1628,6 +1654,7 @@ body.light .project-modal-backdrop {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
   .theme-toggle { margin-left: auto; margin-right: 0.75rem; }
+  .logout-btn { display: none; }
   .nav-clock { display: none; }
 
   /* sections */
