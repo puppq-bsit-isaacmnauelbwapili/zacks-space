@@ -205,7 +205,7 @@ cornerWrap.addEventListener('click', () => {
   bubble.textContent = messages[msgIndex];
 });
 
-/* ─── CORNER WIDGET: hide on mobile scroll ─── */
+/* ─── CORNER WIDGET */
 (function () {
   const THRESHOLD = 80;
   let hidden = false;
@@ -653,7 +653,7 @@ const statsObserver = new IntersectionObserver((entries) => {
 const statsStrip = document.getElementById('statsStrip');
 if (statsStrip) statsObserver.observe(statsStrip);
 
-/* ─── PROJECT IMAGE CLICK: POP SOUND + ZOOM ─── */
+/* ─── PROJECT IMAGE CLICK─── */
 let audioCtx = null;
 
 function playPop() {

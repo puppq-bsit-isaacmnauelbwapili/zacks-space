@@ -325,7 +325,6 @@ body {
   color: var(--accent2);
 }
 
-/* ✦ CV placeholder button — slightly dimmed to signal "not ready yet" */
 .btn-cv {
   opacity: 0.72;
   border-style: dashed;
@@ -752,12 +751,6 @@ body {
   transform: translateY(0);
 }
 
-/* ═══════════════════════════════════════════
-   NEW FEATURES — login form, theme toggle,
-   typing cursor, filter bar, copy email,
-   back to top, light theme
-═══════════════════════════════════════════ */
-
 /* ─── LOGIN FORM ─── */
 .login-form {
   display: flex;
@@ -1131,12 +1124,6 @@ body.light .project-modal-content {
   box-shadow: 0 16px 60px rgba(60,45,20,0.18);
 }
 
-/* ═══════════════════════════════════════════
-   V2 FEATURES — intro, now widget, skill bars,
-   project modal, active nav, cursor glow,
-   keyboard hint
-═══════════════════════════════════════════ */
-
 /* ─── INTRO SCREEN ─── */
 .intro-screen {
   position: fixed;
@@ -1248,12 +1235,11 @@ body.light .cursor-glow {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* ✦ smooth hide/show transition */
   opacity: 1;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ✦ hidden state — used on both mobile and desktop (footer scroll) */
+
 .now-widget.widget-hidden {
   opacity: 0;
   pointer-events: none;
@@ -1433,11 +1419,6 @@ body.light .project-modal-backdrop {
   color: var(--text);
 }
 
-/* ═══════════════════════════════════════════
-   V3 FEATURES — stats strip, timeline,
-   nav clock, footer visits, image click zoom
-═══════════════════════════════════════════ */
-
 /* ─── STATS STRIP ─── */
 .stats-strip {
   display: grid;
@@ -1598,10 +1579,6 @@ body.light .project-modal-backdrop {
   line-height: 1;
 }
 
-/* ═══════════════════════════════════════════
-   RESPONSIVE — device compatibility overhaul
-═══════════════════════════════════════════ */
-
 /* ── LARGE TABLET / SMALL LAPTOP (900px–1200px) ── */
 @media (max-width: 1200px) {
   .navbar { padding: 1rem 2rem; }
@@ -1682,8 +1659,6 @@ body.light .project-modal-backdrop {
     justify-content: center;
     max-width: none;
   }
-
-  /* ✦ hidden on mobile also uses class so transform is correct */
   .now-widget.widget-hidden {
     transform: translateY(12px);
   }
