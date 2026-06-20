@@ -52,10 +52,8 @@ function toggleFaq(btn) {
 }
 
 /* ─── CORNER PHOTO WIDGET ─── */
-
 const catStyle = document.createElement('style');
 catStyle.textContent = `
-  /* ─── CORNER PHOTO ─── */
   #corner-photo-wrap {
     position: fixed;
     bottom: 18px;
@@ -126,7 +124,6 @@ catStyle.textContent = `
     50%       { transform: translateY(-4px); }
   }
 
-  /* ─── MUSIC PLAYER ─── */
   #music-player {
     position: fixed;
     bottom: 18px;
@@ -230,9 +227,7 @@ cornerWrap.addEventListener('click', () => {
   }, { passive: true });
 })();
 
-/* ═══════════════════════════════════════════
-   🎵 MUSIC PLAYER
-═══════════════════════════════════════════ */
+/* ─── MUSIC PLAYER ─── */
 const YOUTUBE_URL = '';
 
 let musicPlaying = false;
@@ -243,6 +238,7 @@ if (YOUTUBE_URL) {
   tag.src = 'https://www.youtube.com/iframe_api';
   document.head.appendChild(tag);
 }
+
 window.onYouTubeIframeAPIReady = function () {
   const videoId = YOUTUBE_URL.match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1];
   if (!videoId) return;
@@ -259,10 +255,9 @@ window.onYouTubeIframeAPIReady = function () {
       onReady: () => { ytPlayer.setVolume(40); }
     }
   });
-}
+};
 
 /* ─── LOGIN ─── */
-// Valid login credentials — add more rows if needed
 const VALID_LOGINS = [
   { user: 'zack',      pass: 'pisces' },
   { user: 'professor', pass: 'guest2026' },
@@ -428,18 +423,14 @@ const nowWidget = document.getElementById('nowWidget');
 window.addEventListener('scroll', () => {
   backToTop.classList.toggle('show', window.scrollY > 600);
 
-  // hide now-widget on scroll (mobile only)
   if (nowWidget && window.innerWidth < 769) {
-    const isMobile = window.innerWidth < 769;
-    const translateBase = isMobile ? 'translateY' : 'translateX(-50%) translateY';
-
     if (window.scrollY > 80) {
       nowWidget.style.opacity = '0';
-      nowWidget.style.transform = isMobile ? 'translateY(10px)' : 'translateX(-50%) translateY(10px)';
+      nowWidget.style.transform = 'translateY(10px)';
       nowWidget.style.pointerEvents = 'none';
     } else {
       nowWidget.style.opacity = '1';
-      nowWidget.style.transform = isMobile ? 'translateY(0)' : 'translateX(-50%) translateY(0)';
+      nowWidget.style.transform = 'translateY(0)';
       nowWidget.style.pointerEvents = 'auto';
     }
   }
@@ -483,7 +474,7 @@ document.addEventListener('mouseleave', () => {
   cursorGlow.classList.remove('show');
 });
 
-/* ─── ACTIVE NAV HIGHLIGHT (scroll-spy) ─── */
+/* ─── ACTIVE NAV HIGHLIGHT ─── */
 const navLinks = document.querySelectorAll('.nav-links a[data-section]');
 const sections = document.querySelectorAll('section[id]');
 
@@ -500,7 +491,7 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(sec => navObserver.observe(sec));
 
-/* ─── SKILL BARS (animate on scroll) ─── */
+/* ─── SKILL BARS ─── */
 const skillBars = document.querySelectorAll('.skill-bar');
 
 skillBars.forEach(bar => {
@@ -596,11 +587,10 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-/* ─── KEYBOARD SHORTCUTS (1-7 to jump sections) ─── */
+/* ─── KEYBOARD SHORTCUTS ─── */
 const sectionOrder = ['home', 'about', 'skills', 'journey', 'projects', 'links', 'faq', 'contact'];
 
 document.addEventListener('keydown', (e) => {
-  // ignore if typing in an input or modal open
   const active = document.activeElement;
   if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
   if (projectModal.classList.contains('open')) return;
@@ -608,9 +598,7 @@ document.addEventListener('keydown', (e) => {
   const num = parseInt(e.key, 10);
   if (num >= 1 && num <= 8) {
     const target = document.getElementById(sectionOrder[num - 1]);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
   }
 });
 
@@ -633,7 +621,7 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-/* ─── STATS COUNTER (animate on scroll) ─── */
+/* ─── STATS COUNTER ─── */
 const statCounts = document.querySelectorAll('.stat-count');
 
 function animateCount(el) {
@@ -648,9 +636,7 @@ function animateCount(el) {
     const eased = 1 - Math.pow(1 - progress, 3);
     const value = Math.round(target * eased);
     el.textContent = (noFormat ? value : value.toLocaleString()) + suffix;
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
+    if (progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
@@ -672,28 +658,22 @@ let audioCtx = null;
 
 function playPop() {
   try {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
 
     osc.type = 'sine';
     osc.frequency.setValueAtTime(520, audioCtx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(820, audioCtx.currentTime + 0.08);
-
     gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.18, audioCtx.currentTime + 0.02);
     gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.18);
 
     osc.connect(gain);
     gain.connect(audioCtx.destination);
-
     osc.start();
     osc.stop(audioCtx.currentTime + 0.2);
-  } catch (err) {
-    // audio not supported / blocked — fail silently
-  }
+  } catch (err) {}
 }
 
 document.querySelectorAll('.project-img').forEach(imgWrap => {
@@ -704,6 +684,8 @@ document.querySelectorAll('.project-img').forEach(imgWrap => {
     setTimeout(() => imgWrap.classList.remove('pop-effect'), 400);
   });
 });
+
+/* ─── MUSIC PLAYER ─── */
 const musicToggle = document.getElementById('musicToggle');
 const musicLabel = document.getElementById('musicLabel');
 const bgMusic = document.getElementById('bgMusic');
@@ -721,3 +703,60 @@ musicToggle.addEventListener('click', () => {
   }
   musicOn = !musicOn;
 });
+
+/* ─── COOKIE CONSENT ─── */
+(function () {
+  const banner = document.getElementById('cookieBanner');
+  const consent = localStorage.getItem('cookieConsent');
+
+  if (consent) {
+    banner.classList.add('hidden');
+    const prefs = JSON.parse(consent);
+    if (prefs.preferences) applyTheme(localStorage.getItem('theme') || 'dark');
+  }
+
+  document.getElementById('cookieAcceptAll').addEventListener('click', () => {
+    saveConsent({ necessary: true, analytics: true, preferences: true });
+    banner.classList.add('hidden');
+  });
+
+  document.getElementById('cookieRejectAll').addEventListener('click', () => {
+    saveConsent({ necessary: true, analytics: false, preferences: false });
+    banner.classList.add('hidden');
+  });
+})();
+
+function saveConsent(prefs) {
+  localStorage.setItem('cookieConsent', JSON.stringify(prefs));
+}
+
+function openCookieModal() {
+  document.getElementById('cookieModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const saved = JSON.parse(localStorage.getItem('cookieConsent') || '{}');
+  if (document.getElementById('toggleAnalytics'))
+    document.getElementById('toggleAnalytics').checked = saved.analytics ?? false;
+  if (document.getElementById('togglePreferences'))
+    document.getElementById('togglePreferences').checked = saved.preferences ?? true;
+}
+
+function closeCookieModal() {
+  document.getElementById('cookieModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function saveCookiePreferences() {
+  saveConsent({
+    necessary: true,
+    analytics: document.getElementById('toggleAnalytics').checked,
+    preferences: document.getElementById('togglePreferences').checked,
+  });
+  closeCookieModal();
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+function acceptAllFromModal() {
+  saveConsent({ necessary: true, analytics: true, preferences: true });
+  closeCookieModal();
+  document.getElementById('cookieBanner').classList.add('hidden');
+}

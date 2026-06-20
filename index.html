@@ -535,7 +535,75 @@
       </button>
     </div>
   </div><!-- end .site -->
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-left">
+      <p class="cookie-title">🍪 we use cookies</p>
+      <p class="cookie-text">
+        this site uses cookies to enhance your experience and remember your preferences.
+        by clicking <strong style="color: var(--accent);">accept all cookies</strong>, you agree to the storing of cookies on your device.
+        read our <a href="#" onclick="openCookieModal(); return false;">cookie policy</a> to learn more.
+      </p>
+    </div>
+    <div class="cookie-btns">
+      <button class="cookie-accept-all" id="cookieAcceptAll">accept all cookies</button>
+      <button class="cookie-reject" id="cookieRejectAll">reject all</button>
+      <button class="cookie-manage" id="cookieManageBtn" onclick="openCookieModal()">manage preferences</button>
+    </div>
+  </div>
 
+  <!-- COOKIE PREFERENCES MODAL -->
+  <div class="cookie-modal-overlay" id="cookieModalOverlay">
+    <div class="cookie-modal">
+      <button class="cookie-modal-close" onclick="closeCookieModal()">✕</button>
+      <p class="cookie-modal-title">cookie preferences</p>
+      <p class="cookie-modal-sub">
+        manage your cookie settings below. strictly necessary cookies are always active as they are required for the site to function.
+        you can learn more about how this site uses cookies in our <a href="#">cookie policy</a>.
+      </p>
+
+      <div class="cookie-category">
+        <div class="cookie-category-info">
+          <p class="cookie-category-name">
+            strictly necessary
+            <span class="cookie-required-badge">always on</span>
+          </p>
+          <p class="cookie-category-desc">required for the website to function. includes login session, theme preference, and cookie consent state. cannot be disabled.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" checked disabled />
+          <span class="cookie-toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-category">
+        <div class="cookie-category-info">
+          <p class="cookie-category-name">analytics</p>
+          <p class="cookie-category-desc">helps understand how visitors interact with the site via anonymous usage data. used to improve content and performance.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="toggleAnalytics" />
+          <span class="cookie-toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-category">
+        <div class="cookie-category-info">
+          <p class="cookie-category-name">preferences</p>
+          <p class="cookie-category-desc">remembers your settings such as theme (dark/light mode) and other personalisation choices across visits.</p>
+        </div>
+        <label class="cookie-toggle">
+          <input type="checkbox" id="togglePreferences" checked />
+          <span class="cookie-toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-modal-actions">
+        <button class="cookie-save" onclick="saveCookiePreferences()">save preferences ↗</button>
+        <button class="cookie-accept-all-modal" onclick="acceptAllFromModal()">accept all</button>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
