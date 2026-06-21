@@ -633,6 +633,75 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+/* ─── CLOCK CALENDAR POPUP ─── */
+const navClockWrap = document.getElementById('navClockWrap');
+const calendarPopup = document.getElementById('calendarPopup');
+const calendarMonth = document.getElementById('calendarMonth');
+const calendarDays = document.getElementById('calendarDays');
+
+const monthNames = [
+  'january', 'february', 'march', 'april', 'may', 'june',
+  'july', 'august', 'september', 'october', 'november', 'december'
+];
+
+function renderCalendarPopup() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Manila',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date());
+
+  const map = {};
+  parts.forEach(p => { map[p.type] = p.value; });
+
+  const year = parseInt(map.year, 10);
+  const month = parseInt(map.month, 10) - 1;
+  const todayDate = parseInt(map.day, 10);
+
+  calendarMonth.textContent = `${monthNames[month]} ${year}`;
+
+  const firstWeekday = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+  let html = '';
+
+  for (let i = firstWeekday - 1; i >= 0; i--) {
+    html += `<div class="calendar-day muted"><span>${daysInPrevMonth - i}</span></div>`;
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const isToday = d === todayDate;
+    html += `<div class="calendar-day${isToday ? ' today' : ''}"><span>${d}</span></div>`;
+  }
+
+  const totalCells = firstWeekday + daysInMonth;
+  const trailing = (7 - (totalCells % 7)) % 7;
+  for (let d = 1; d <= trailing; d++) {
+    html += `<div class="calendar-day muted"><span>${d}</span></div>`;
+  }
+
+  calendarDays.innerHTML = html;
+}
+
+navClock.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = calendarPopup.classList.contains('open');
+  if (!isOpen) renderCalendarPopup();
+  calendarPopup.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+  if (navClockWrap && !navClockWrap.contains(e.target)) {
+    calendarPopup.classList.remove('open');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') calendarPopup.classList.remove('open');
+});
+
 /* ─── STATS COUNTER ─── */
 const statCounts = document.querySelectorAll('.stat-count');
 

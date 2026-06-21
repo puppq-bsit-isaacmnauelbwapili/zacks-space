@@ -60,7 +60,16 @@
         <li><a href="#faq" data-section="faq">faq</a></li>
         <li><a href="#contact" data-section="contact">contact</a></li>
       </ul>
-      <span class="nav-clock" id="navClock"></span>
+      <div class="nav-clock-wrap" id="navClockWrap">
+        <span class="nav-clock" id="navClock"></span>
+        <div class="calendar-popup" id="calendarPopup">
+          <p class="calendar-month" id="calendarMonth"></p>
+          <div class="calendar-weekdays">
+            <span>su</span><span>mo</span><span>tu</span><span>we</span><span>th</span><span>fr</span><span>sa</span>
+          </div>
+          <div class="calendar-days" id="calendarDays"></div>
+        </div>
+      </div>
       <button class="theme-toggle" id="themeToggle" aria-label="toggle theme" title="toggle theme">☼</button>
       <button class="logout-btn" id="logoutBtn" aria-label="logout" title="logout">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
